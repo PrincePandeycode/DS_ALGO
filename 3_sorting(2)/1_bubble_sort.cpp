@@ -32,7 +32,7 @@ void mergge(vector<int>&g1, int low, int mid, int high){
     }
 }
 
-void MergeSort( vector<int>&g1 , int low, int high){
+void MergeSort( vector<int> &g1 , int low, int high){
     if(low == high) return;
     int mid = (low+high)/2;
     MergeSort(g1,low,mid);
