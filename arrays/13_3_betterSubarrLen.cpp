@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+// tu jane
 int getLongestSubarray(vector<int> v, int k){
     int maxlen = 0;
     long long sum;
