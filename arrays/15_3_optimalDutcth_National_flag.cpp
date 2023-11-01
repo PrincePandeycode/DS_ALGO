@@ -26,7 +26,7 @@ void DutchNationalFlagAlgo(vector<int>&v){
     
 }
 int main(){
-    vector<int> v = {0,1,2,0,1,2,1,2,0,0,0,1};
+    vector<int> v = {0,1,2,0,1,2,1,2,0,0,0,1,2,1};
 
     DutchNationalFlagAlgo(v);
       for(auto it : v){
