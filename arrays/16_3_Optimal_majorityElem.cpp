@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int MajorityElem(vector<int>&v, int n){
+int MajorityElem(vector<int>&v, int n){             //Moore's voting ago
     int elem;
     int count = 0;
     for(int i = 0;i<n;i++){
