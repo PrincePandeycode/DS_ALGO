@@ -6,7 +6,7 @@ int MajorityElem(vector<int>&v, int n){
     for(int i = 0;i<n;i++){
 
         if(count == 0){
-            count = 1;
+            
             elem = v[i];
         }
         if(elem == v[i]){
