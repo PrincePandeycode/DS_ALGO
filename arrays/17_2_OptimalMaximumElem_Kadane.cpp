@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int MaximumSum(vector<int>&v){
+int MaximumSum(vector<int>&v){ //kadane algo
     int n = v.size();
     int maxsum = INT_MIN;
     int sum = 0;
@@ -14,6 +14,9 @@ int MaximumSum(vector<int>&v){
             sum = 0;
         }
    }
+
+   //if question states empty array if the sum is in negative returns zero then first compare then return (NOT NECESSARY)
+   if(maxsum<0) maxsum = 0;
    return maxsum;
 }
 
