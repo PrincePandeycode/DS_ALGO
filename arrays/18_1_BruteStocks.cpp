@@ -6,7 +6,7 @@ int BestProfit(vector<int>&Prices){
       int maxprofit = 0;
     for(int i = 0;i<n-1;i++){
         int Profit = 0;
-        for(int j = 1;j<n;j++){
+        for(int j = i+1;j<n;j++){
             if(Prices[i]<Prices[j]){
                 Profit = Prices[j]-Prices[i];
                 maxprofit = max(maxprofit,Profit);
