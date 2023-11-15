@@ -2,7 +2,7 @@
 using namespace std;
 vector<int> Rearrange(vector<int>&v){
     int n = v.size();
-    vector<int> ans(n);
+    vector<int> ans(n,0);
     int pos = 0;
     int neg = 1;
 
