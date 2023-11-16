@@ -34,7 +34,7 @@ vector<int> RearrangebySign(vector<int>&v,int n){
 }
 
 int main(){
-    // vector<int> v = {-1,1,-4,2,4,6,7,1,5,-4,-6};
+
     vector<int> v = {-1,2,3,8,-3,1};
      for(auto it: v){
         cout<<it<<" ";
