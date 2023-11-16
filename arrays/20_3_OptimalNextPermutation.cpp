@@ -11,12 +11,14 @@ vector<int> NextPermutation(vector<int>&v){
         }
     }
     if(index == -1){
-        sort(v.begin(),v.end());
+        reverse(v.begin(),v.end());
         return v;
     }
     for(int i = n-1;i>index;i--){
-        if(v[index]<v[i]) swap(v[index],v[i]);
+        if(v[index]<v[i]) {
+        swap(v[index],v[i]);
         break;
+        }
     }
     sort(v.begin()+index+1,v.end());
 
@@ -25,7 +27,7 @@ return v;
 }
 
 int main(){
-    vector<int> v = {1,2,3,5,4};
+    vector<int> v = {1,2,4,5,3};
     for(auto it : v){
         cout<<it<<" ";
     }

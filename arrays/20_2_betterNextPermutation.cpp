@@ -6,7 +6,7 @@ vector<int> NextPermutation(vector<int>&v){
 }
 
 int main(){
-  vector<int> v = {1,2,3,4,5};
+  vector<int> v = {1,2,4,5,3};
     for(auto it : v){
         cout<<it<<" ";
     }
