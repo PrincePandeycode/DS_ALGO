@@ -12,6 +12,7 @@ bool linearSearch(vector<int>&v, int next){
 
 int LongestSeq(vector<int>&v){
     int n = v.size();
+    if(n==0) return 0;
     int longest = 1;
     for(int i = 0;i<n;i++){
         int element = v[i];
