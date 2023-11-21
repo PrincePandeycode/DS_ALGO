@@ -4,17 +4,12 @@ using namespace std;
 int maxSubarrays(vector<int>&v,int k){
     int n = v.size();
     int count = 0;
-       
     for(int i = 0;i<n;i++){
-       
-           
         for(int j = i;j<n;j++){
-
-
-               int sum = 0;
+            int sum = 0;
+        
             for(int k = i;k<=j;k++){
-            sum = sum+v[k];
-            // sum += v[j];
+                sum = sum+v[k];
             }
             if(sum == k){
                 count++;
