@@ -40,10 +40,6 @@ vector<int> majority3(vector<int> v){
     vector<int> ans;
     if(cnt1 >= mini) ans.push_back(el1);
     if(cnt2 >= mini) ans.push_back(el2);
-    
-
-
-
 
     sort(ans.begin(),ans.end());
     return ans;
