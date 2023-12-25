@@ -1,28 +1,23 @@
-
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-int nCr(int nn, int rr) {
-    int n = nn-1;
-    int r = rr-1;
-    long long res = 1;
+int FindEL(int row,int col){
+  row = row-1;
+  col = col-1;
 
-  for(int i = 0;i<r;i++){
-     res *=(n-i);
-    res /=(i+1);
+  int res = 1;
+  for(int i = 0;i<col;i++){
+    res = res*(row-i);
+    res = res/(i+1);
   }
-    return res;
+  return res;
 }
 
+int main(){
+  int row = 5;
+  int col = 3;
 
+  int res = FindEL(row,col);
 
-int main()
-{
-    int r = 5; // row number
-    int c = 3; // col number
-    int element = nCr(r, c);
-    cout << "The element at position (r,c) is: "
-            << element << "n";
-    return 0;
+  cout<<res;
 }
-        
