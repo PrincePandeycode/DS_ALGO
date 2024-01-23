@@ -3,54 +3,56 @@
 using namespace std;
 
 
-int upperB(vector<int>&arr,int n,int k){
-    int low = 0;
-    int high = n-1;
-    int ans = n;
-    while(low<= high){
-        int mid = (low+high)/2;
-        if(arr[mid]>k){
-            ans = mid;
-            high = mid-1;
+    int lowerbound(vector<int>&nums,int n, int target){
+        int low = 0;
+        int high = n-1;
+        int ans = n;
+        while(low<=high){
+            int mid = (low+high)/2;
+            if(nums[mid]>=target){
+                ans = mid;
+                high= mid-1;
+            }
+            else {
+                low = mid+1;
+            }
         }
-        else low = mid+1;
+        return ans;
     }
-    return ans;
-}
-
-int lowerB(vector<int>&arr,int n,int k){
-
-    int low = 0;int high = n-1;
-    int ans = n;
-
-    while(low<=high){
-        int mid = (low+high)/2;
-        if(arr[mid]>=k){
-            ans = mid;
-            high = mid-1;
+      int upperbound(vector<int>&nums,int n, int target){
+           int low = 0;
+        int high = n-1;
+        int ans = n;
+        while(low<=high){
+            int mid = (low+high)/2;
+            if(nums[mid]>target){
+                ans = mid;
+                high= mid-1;
+            }
+            else {
+                low = mid+1;
+            }
         }
-        else low= mid+1;
+        return ans;
+        
     }
-    return ans;
-    
-}
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int n = nums.size();
 
-pair<int,int> firstAndLastPosition(vector<int>&arr,int n,int k){
-    int ind1 = upperB(arr,n,k);
-    int ind2 = lowerB(arr,n,k);
+        int lb = lowerbound(nums, n,target);
 
-    if(ind2 == n|| arr[ind2]!=k) return{-1,-1};
-    ind1 = ind1-1;
+        if(lb == n || nums[lb]!= target) return {-1,-1};
+        return {lowerbound(nums,n,target),upperbound(nums,n,target)-1};
 
-  return {ind2,ind1};
-}
+        
+    }
 
 int main()
 {
     vector<int> arr =  {2, 4, 6, 8, 8, 8, 11, 13};
-    int n = 8, k = 8;
-    pair<int, int> ans = firstAndLastPosition(arr, n, k);
+    int  k = 11;
+    vector<int> ans = searchRange(arr, k);
     cout << "The first and last positions are: "
-         << ans.first << " " << ans.second << "\n";
+         << ans[0] << " " << ans[1] << "\n";
     return 0;
 }
