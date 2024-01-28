@@ -2,58 +2,57 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int firstOccurrence(vector<int> &arr, int n, int k) {
-    int low = 0, high = n - 1;
-    int first = -1;
+int FirstO(vector<int>&arr, int n, int k){
+    int ans = -1;
+    int low = 0;
+    int high = n-1;
 
-    while (low <= high) {
-        int mid = (low + high) / 2;
-        // maybe an answer
-        if (arr[mid] == k) {
-            first = mid;
-            //look for smaller index on the left
-            high = mid - 1;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid] == k) {
+            high = mid-1;
+            ans = mid;
+
         }
-        else if (arr[mid] < k) {
-            low = mid + 1; // look on the right
+         else if(arr[mid] > k){
+            high = mid-1;
+
         }
-        else {
-            high = mid - 1; // look on the left
-        }
+        else low = mid+1;
     }
-    return first;
+    return ans;
+
 }
 
-int lastOccurrence(vector<int> &arr, int n, int k) {
-    int low = 0, high = n - 1;
-    int last = -1;
+int LastO(vector<int>&arr, int n, int k){
+     int ans = -1;
+    int low = 0;
+    int high = n-1;
 
-    while (low <= high) {
-        int mid = (low + high) / 2;
-        // maybe an answer
-        if (arr[mid] == k) {
-            last = mid;
-            //look for larger index on the right
-            low = mid + 1;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid] == k){
+            low = mid +1;
+            ans = mid;
+
+        }   
+        else if(arr[mid] < k){
+            low = mid+1;
         }
-        else if (arr[mid] < k) {
-            low = mid + 1; // look on the right
-        }
-        else {
-            high = mid - 1; // look on the left
-        }
+        else high = mid-1;
+
     }
-    return last;
+    return ans;
 }
 
 
-pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k) {
-    int first = firstOccurrence(arr, n, k);
-    if (first == -1) return { -1, -1};
-    int last = lastOccurrence(arr, n, k);
-    return {first, last};
-}
 
+pair<int,int> firstAndLastPosition(vector<int>&arr, int n, int k){
+    int first = FirstO(arr,n,k);
+    int last = LastO(arr,n,k);
+
+    return {first,last};
+}
 
 int main()
 {
