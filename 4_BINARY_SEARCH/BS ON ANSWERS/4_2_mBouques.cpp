@@ -31,13 +31,24 @@ int roseGarden(vector<int> arr, int k, int m)
 		if((m*k)>n) return -1;
 		int mini = *min_element(arr.begin(),arr.end());
 		int maxi = *max_element(arr.begin(),arr.end());
-	for(int i = mini;i<=maxi;i++){
-        if(calculateDays(arr,k,m,i)== true){
-            return i;
-        }
-    }
-    return -1;
-    
+		int low = mini;
+		int high = maxi;
+		int ans = 0;
+		while(low<=high){
+			int mid = (low+high)/2;
+
+			bool here = calculateDays(arr, k, m, mid);
+
+			if(here == true){
+				ans = mid;
+				high = mid -1;
+
+			}
+			else{
+				low = mid+1;
+			}
+		}
+		return low;
 }
 
 int main()
