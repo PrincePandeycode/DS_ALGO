@@ -16,7 +16,7 @@ int kth(vector<int>& arr, int k){
 }
 int main(){
     vector<int> arr = {2,3,4,7,11};
-    int k = 5;
+    int k = 5;8
 
     int ans = kth(arr,k);
     cout<<ans;
