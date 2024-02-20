@@ -23,12 +23,22 @@ int bookAllocate(vector<int>&arr, int m){
     int low = *max_element(arr.begin(),arr.end());
     int  high = accumulate(arr.begin(),arr.end(),0);
 
-    for(int pages = low ;pages<=high;pages++){
-        if(students(arr,pages) == m){
-            return pages;
+    int ans = 0;
+    while(low<=high){
+        int mid = (low+high)/2;
+        int chk = students(arr,mid);
+        if(chk>m){
+           low = mid+1;
+
+        }
+       
+        else{
+             ans = mid;
+           high = mid-1;
+
         }
     }
-    return -1;
+    return ans;
 }
 
 int main(){
