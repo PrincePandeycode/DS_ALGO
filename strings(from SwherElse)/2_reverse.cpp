@@ -1,9 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main(){
-    string s = "prince pandey";
-
+string reverse(string s){
     int start = 0,end = s.size()-1;
 
     while(start<end){
@@ -11,5 +9,16 @@ int main(){
         start++;
         end--;
     }
-    cout<<s;
+    return s;
+}
+
+int main(){
+    string s ;
+    getline(cin,s);
+
+    string ans = reverse(s);
+
+    cout<<ans;
+
+ 
 }
