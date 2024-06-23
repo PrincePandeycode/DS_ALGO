@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
- bool checkIfPangram(string sentence) {
+bool checkIfPangram(string sentence) {
 
         int n = sentence.size();
         int count = 0;
